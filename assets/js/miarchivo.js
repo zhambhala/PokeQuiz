@@ -1,11 +1,6 @@
 
 
-/*apuntes operadores*//*
-alt96 === ``
 
-
-
-*/
 /*
 
 /*While*//* 
@@ -100,15 +95,36 @@ bancos(selecBank)
 
 
 
+//----------------------ANOTACIONES------------------------------
+//---------------apuntes operadores-------------------------------
+//alt96 === ``
 
-/*const pokemonUsuario = {
-    nombre:,
-    especie:,
-    tipo:,
-    genero:,
-}*/
+//recorredor de array
+/*
+const eleccionesPosibles = (array, fn) => {
+    for (const elecciones of array) {
+        fn(elecciones)
+    }
+}
+tNormal.forEach(console.log )
+
+*/
+//buscador de array find
+/*
+const encontrarPokemon = tNormal.find((Pokemon)=>{
+    return Pokemon.id === 52
+}
+    
+    ) 
+    console.log ("aplicando el find con "+encontrarPokemon)
+*/
+//------------------------------------------------------------
 
 
+
+let pokedex = []
+let elegir
+const nombreElecciones = []
 class Pokemon {
 
     constructor(nombre, especie, tipo, id) {
@@ -118,34 +134,71 @@ class Pokemon {
         this.id = id
     }
 }
-
-const tFuego = [
+const pokemones = [
 
     new Pokemon("Charmander", "Charmander", "fuego", 4),
     new Pokemon("Cyndaquil", "Cyndaquil	", "fuego", 155),
     new Pokemon("Fennekin", "Fennekin", "fuego", 653),
-    new Pokemon("Litten", "Litten", "fuego", 725)
-]
-
-const tAgua = [
+    new Pokemon("Litten", "Litten", "fuego", 725),
     new Pokemon("Squirtle", "Squirtle", "agua", 7),
-    new Pokemon("Wartortle", "Wartortle", "agua", 8),
-    new Pokemon("Blastoise", "Blastoise", "agua", 9),
-    new Pokemon("Psyduck", "Psyduck", "agua", 54)
-]
-const tPlanta = [
+    new Pokemon("Mudkip", "Mudkip", "agua", 258),
+    new Pokemon("Oshawott", "Oshawott", "agua", 501),
+    new Pokemon("Froakie", "Froakie", "agua", 656),
     new Pokemon("Bulbasaur", "Bulbasaur", "planta", 1),
-    new Pokemon("vysaur", "vysaur", "planta", 2),
-    new Pokemon("Venusaur", "Venusaur", "planta", 3),
-    new Pokemon("Oddish", "Oddish", "planta", 43)
+    new Pokemon("Turtwig", "Turtwig", "planta", 387),
+    new Pokemon("Snivy", "Snivy", "planta", 495),
+    new Pokemon("Chespin", "Chespin", "planta", 650),
+    new Pokemon("Meowth", "Meowth", "normal", 52),
+    new Pokemon("Teddiursa", "Teddiursa", "normal", 216),
+    new Pokemon("Zigzagoon", "Zigzagoon", "normal", 263),
+    new Pokemon("Minccino", "Minccino", "normal", 572)
 ]
 
+const tFuego = pokemones.filter((Pokemon) => {
+    return (Pokemon.tipo === "fuego")
+})
 
+const tAgua = pokemones.filter((Pokemon) => {
+    return (Pokemon.tipo === "agua")
+})
+
+const tPlanta = pokemones.filter((Pokemon) => {
+    return (Pokemon.tipo === "planta")
+})
+
+
+const tNormal = pokemones.filter((Pokemon) => {
+    return (Pokemon.tipo === "normal")
+})
+
+
+
+
+function elegido() {
+    if (elegir == 1) {
+        console.log(" felicidades " + entrenador.nombre + " " + " tu compañero pokemon es " + nombreElecciones[0])
+        console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
+        console.log(pokedex[0])
+    } else if (elegir == 2) {
+        console.log(" felicidades " + entrenador.nombre + " " + " tu compañero pokemon es " + nombreElecciones[1])
+        console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
+        console.log(pokedex[1])
+    } else if (elegir == 3) {
+        console.log(" felicidades " + entrenador.nombre + " " + " tu compañero pokemon es " + nombreElecciones[2])
+        console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
+        console.log(pokedex[2])
+    } else if (elegir == 4) {
+        console.log(" felicidades " + entrenador.nombre + " " + " tu compañero pokemon es " + nombreElecciones[3])
+        console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
+        console.log(pokedex[3])
+    } else {
+        alert("ingrese valores validos")
+    }
+}
 
 const entrenador = {
     nombre: prompt("coloque su nombre"),
     edad: Number(prompt("coloque su edad")),
-
 }
 
 const desiciones = {
@@ -153,33 +206,58 @@ const desiciones = {
     lugar: Number(prompt("elija el lugar que mas le guste con numeros, 1=lagos, 2=montañas")),
 }
 
-console.log(entrenador.nombre +" "+ " tus posibles elecciones" )
 
-if (desiciones.clima === 1, desiciones.lugar === 1) {
+if (desiciones.clima === 1 && desiciones.lugar === 1) {
+    nombreElecciones.push(tAgua[0].nombre)
+    nombreElecciones.push(tAgua[1].nombre)
+    nombreElecciones.push(tAgua[2].nombre)
+    nombreElecciones.push(tAgua[3].nombre)
+    pokedex.push(tAgua[0])
+    pokedex.push(tAgua[1])
+    pokedex.push(tAgua[2])
+    pokedex.push(tAgua[3])
+    elegir = Number(prompt("Felicidades tus posibles elecciones son " + nombreElecciones + " Elija con numeros " + " 1: " + nombreElecciones[0] + " 2: " + nombreElecciones[1] + " 3: " + nombreElecciones[2] + " 4: " + nombreElecciones[3]))
+    elegido()
 
-    for (let i = 0; i < tAgua.length; i++) {
-        console.log(tAgua[i].nombre)
-    }
+} else if (desiciones.clima === 2 && desiciones.lugar === 2) {
 
-} else if (desiciones.clima === 2, desiciones.lugar === 2) {
+    nombreElecciones.push(tFuego[0].nombre)
+    nombreElecciones.push(tFuego[1].nombre)
+    nombreElecciones.push(tFuego[2].nombre)
+    nombreElecciones.push(tFuego[3].nombre)
+    pokedex.push(tFuego[0])
+    pokedex.push(tFuego[1])
+    pokedex.push(tFuego[2])
+    pokedex.push(tFuego[3])
+    elegir = Number(prompt("Felicidades tus posibles elecciones son " + nombreElecciones + " Elija con numeros " + " 1: " + nombreElecciones[0] + " 2: " + nombreElecciones[1] + " 3: " + nombreElecciones[2] + " 4: " + nombreElecciones[3]))
+    elegido()
 
-    for (let i = 0; i < tFuego.length; i++) {
-        console.log(tFuego[i].nombre)
-    }
+} else if (desiciones.clima === 2 && desiciones.lugar === 1) {
 
-} else if (desiciones.clima === 2, desiciones.lugar === 1) {
+    nombreElecciones.push(tPlanta[0].nombre)
+    nombreElecciones.push(tPlanta[1].nombre)
+    nombreElecciones.push(tPlanta[2].nombre)
+    nombreElecciones.push(tPlanta[3].nombre)
+    pokedex.push(tPlanta[0])
+    pokedex.push(tPlanta[1])
+    pokedex.push(tPlanta[2])
+    pokedex.push(tPlanta[3])
+    elegir = Number(prompt("Felicidades tus posibles elecciones son " + nombreElecciones + " Elija con numeros " + " 1: " + nombreElecciones[0] + " 2: " + nombreElecciones[1] + " 3: " + nombreElecciones[2] + " 4: " + nombreElecciones[3]))
+    elegido()
 
-    for (let i = 0; i < tPlanta.length; i++) {
-        console.log(tPlanta[i].nombre)
-    }
+} else if (desiciones.clima === 1 && desiciones.lugar === 2) {
 
-}else if (desiciones.clima === 1, desiciones.lugar === 2) {
-
-    for (let i = 0; i < tPlanta.length; i++) {
-        console.log(tPlanta[i].nombre)
-    }
-    
-}else{
- alert("no dio valores validos")
+    nombreElecciones.push(tNormal[0].nombre)
+    nombreElecciones.push(tNormal[1].nombre)
+    nombreElecciones.push(tNormal[2].nombre)
+    nombreElecciones.push(tNormal[3].nombre)
+    pokedex.push(tNormal[0])
+    pokedex.push(tNormal[1])
+    pokedex.push(tNormal[2])
+    pokedex.push(tNormal[3])
+    elegir = Number(prompt("Felicidades tus posibles elecciones son " + nombreElecciones + " Elija con numeros " + " 1: " + nombreElecciones[0] + " 2: " + nombreElecciones[1] + " 3: " + nombreElecciones[2] + " 4: " + nombreElecciones[3]))
+    elegido()
+} else {
+    alert("no dio valores validos")
 }
 
