@@ -119,43 +119,61 @@ const encontrarPokemon = tNormal.find((Pokemon)=>{
     console.log ("aplicando el find con "+encontrarPokemon)
 */
 //------------------------------------------------------------
+//-------------------------------HTMLModifie--------------------
+/*let titulo3= document.getElementById("titulo-3")
+titulo3.innerText = "DE FANS PARA FANS"
+ console.log(titulo3.innerText)
+ titulo3.innerText = "en proceso"
+console.log(titulo3.innerText)
 
+ let container = document.getElementById ("container")
+ container.innerHTML = "<h2>buenas</h2><p>hola</p>"
+ container.className = "container"*/
 
+        //let print = document.createElement("p")
+        //print.innerHTML = "<h1>felicidades</h1>"
+        //document.body.append(print)
+        
+
+//-----------------------------puroJS-----------------------------------------------
 
 let pokedex = []
 let elegir
 const nombreElecciones = []
 class Pokemon {
 
-    constructor(nombre, especie, tipo, id) {
+    constructor(nombre, especie, imagen, tipo, id) {
         this.nombre = nombre
         this.especie = especie
+        this.imagen = imagen
         this.tipo = tipo
         this.id = id
+
     }
 }
 const pokemones = [
 
-    new Pokemon("Charmander", "Charmander", "fuego", 4),
-    new Pokemon("Cyndaquil", "Cyndaquil	", "fuego", 155),
-    new Pokemon("Fennekin", "Fennekin", "fuego", 653),
-    new Pokemon("Litten", "Litten", "fuego", 725),
-    new Pokemon("Squirtle", "Squirtle", "agua", 7),
-    new Pokemon("Mudkip", "Mudkip", "agua", 258),
-    new Pokemon("Oshawott", "Oshawott", "agua", 501),
-    new Pokemon("Froakie", "Froakie", "agua", 656),
-    new Pokemon("Bulbasaur", "Bulbasaur", "planta", 1),
-    new Pokemon("Turtwig", "Turtwig", "planta", 387),
-    new Pokemon("Snivy", "Snivy", "planta", 495),
-    new Pokemon("Chespin", "Chespin", "planta", 650),
-    new Pokemon("Meowth", "Meowth", "normal", 52),
-    new Pokemon("Teddiursa", "Teddiursa", "normal", 216),
-    new Pokemon("Zigzagoon", "Zigzagoon", "normal", 263),
-    new Pokemon("Minccino", "Minccino", "normal", 572)
+    new Pokemon("Charmander", "Charmander", "../img/pokemons/Charmander.webp", "fuego", 4),
+    new Pokemon("Cyndaquil", "Cyndaquil	", "../img/pokemons/Cyndaquil.webp", "fuego", 155),
+    new Pokemon("Fennekin", "Fennekin", "../img/pokemons/Fennekin.webp", "fuego", 653),
+    new Pokemon("Litten", "Litten", "../img/pokemons/Litten.webp", "fuego", 725),
+    new Pokemon("Squirtle", "Squirtle", "../img/pokemons/Squirtle.webp", "agua", 7),
+    new Pokemon("Mudkip", "Mudkip", "../img/pokemons/Mudkip.webp", "agua", 258),
+    new Pokemon("Oshawott", "Oshawott", "../img/pokemons/Oshawott.webp", "agua", 501),
+    new Pokemon("Froakie", "Froakie", "../img/pokemons/Froakie.webp", "agua", 656),
+    new Pokemon("Bulbasaur", "Bulbasaur", "../img/pokemons/Bulbasaur.webp", "planta", 1),
+    new Pokemon("Turtwig", "Turtwig", "../img/pokemons/Turtwig.webp", "planta", 387),
+    new Pokemon("Snivy", "Snivy", "../img/pokemons/Snivy.webp", "planta", 495),
+    new Pokemon("Chespin", "Chespin", "../img/pokemons/Chespin.webp", "planta", 650),
+    new Pokemon("Meowth", "Meowth", "../img/pokemons/Meowth.webp", "normal", 52),
+    new Pokemon("Teddiursa", "Teddiursa", "../img/pokemons/Teddiursa.webp", "normal", 216),
+    new Pokemon("Zigzagoon", "Zigzagoon", "../img/pokemons/Zigzagoon.webp", "normal", 263),
+    new Pokemon("Minccino", "Minccino", "../img/pokemons/Minccino.webp", "normal", 572)
 ]
 
 const tFuego = pokemones.filter((Pokemon) => {
     return (Pokemon.tipo === "fuego")
+
 })
 
 const tAgua = pokemones.filter((Pokemon) => {
@@ -172,13 +190,41 @@ const tNormal = pokemones.filter((Pokemon) => {
 })
 
 
+/*
+function creacionCartaPokemon() {
+    let pokeCard = document.getElementById("pokeCards")
+    pokemones.forEach((e) => {
+        let cartaCreada = `
+        
+    <div class="card bg-dark  text-white">
+  <img src="${e.img}" class="card-img" alt="pokemon seleccionado">
+  <div class="card-img-overlay">
+    <h5 class="card-title">${e.nombre}</h5>
+    <p class="card-text">${e.especie}</p>
+    <p class="card-text">${e.tipo}</p>
+  </div>
+</div>
+`
+pokeCards.innerHTML += cartaCreada
+    });
+}
 
+*/
+//console.log(pokedex)
+//console.log(creacionCartaPokemon)
+//let plantilla = ` NOMBRE: ${pokedex.nombre} - especie ${pokedex.especie} - tipo ${pokedex.tipo}`
 
 function elegido() {
     if (elegir == 1) {
+       
+        
         console.log(" felicidades " + entrenador.nombre + " " + " tu compañero pokemon es " + nombreElecciones[0])
         console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
         console.log(pokedex[0])
+        let plantilla = `
+        NOMBRE: ${Pokemon.nombre} - especie ${Pokemon.especie} - tipo ${Pokemon.tipo}
+        `
+        console.log(plantilla)
     } else if (elegir == 2) {
         console.log(" felicidades " + entrenador.nombre + " " + " tu compañero pokemon es " + nombreElecciones[1])
         console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
@@ -206,8 +252,9 @@ const desiciones = {
     lugar: Number(prompt("elija el lugar que mas le guste con numeros, 1=lagos, 2=montañas")),
 }
 
-
 if (desiciones.clima === 1 && desiciones.lugar === 1) {
+    //let pick = document.getElementById ("pokeCards")
+
     nombreElecciones.push(tAgua[0].nombre)
     nombreElecciones.push(tAgua[1].nombre)
     nombreElecciones.push(tAgua[2].nombre)
@@ -216,6 +263,10 @@ if (desiciones.clima === 1 && desiciones.lugar === 1) {
     pokedex.push(tAgua[1])
     pokedex.push(tAgua[2])
     pokedex.push(tAgua[3])
+
+    //document.body.append(pokedex.imagen)
+    //pick.innerHTML = pokedex.imagen
+    /*creacionCartaPokemon()*/
     elegir = Number(prompt("Felicidades tus posibles elecciones son " + nombreElecciones + " Elija con numeros " + " 1: " + nombreElecciones[0] + " 2: " + nombreElecciones[1] + " 3: " + nombreElecciones[2] + " 4: " + nombreElecciones[3]))
     elegido()
 
@@ -260,4 +311,3 @@ if (desiciones.clima === 1 && desiciones.lugar === 1) {
 } else {
     alert("no dio valores validos")
 }
-
