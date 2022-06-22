@@ -130,16 +130,18 @@ console.log(titulo3.innerText)
  container.innerHTML = "<h2>buenas</h2><p>hola</p>"
  container.className = "container"*/
 
-        //let print = document.createElement("p")
-        //print.innerHTML = "<h1>felicidades</h1>"
-        //document.body.append(print)
-        
+//let print = document.createElement("p")
+//print.innerHTML = "<h1>felicidades</h1>"
+//document.body.append(print)
+
 
 //-----------------------------puroJS-----------------------------------------------
 
 let pokedex = []
 let elegir
 const nombreElecciones = []
+
+/* ejemplo de class con constructor
 class Pokemon {
 
     constructor(nombre, especie, imagen, tipo, id) {
@@ -150,9 +152,8 @@ class Pokemon {
         this.id = id
 
     }
-}
-const pokemones = [
 
+    estos constructores van en la variable pokemones
     new Pokemon("Charmander", "Charmander", "../img/pokemons/Charmander.webp", "fuego", 4),
     new Pokemon("Cyndaquil", "Cyndaquil	", "../img/pokemons/Cyndaquil.webp", "fuego", 155),
     new Pokemon("Fennekin", "Fennekin", "../img/pokemons/Fennekin.webp", "fuego", 653),
@@ -169,6 +170,125 @@ const pokemones = [
     new Pokemon("Teddiursa", "Teddiursa", "../img/pokemons/Teddiursa.webp", "normal", 216),
     new Pokemon("Zigzagoon", "Zigzagoon", "../img/pokemons/Zigzagoon.webp", "normal", 263),
     new Pokemon("Minccino", "Minccino", "../img/pokemons/Minccino.webp", "normal", 572)
+    
+
+}
+*/
+const pokemones = [
+
+    {
+        "nombre": "Charmander",
+        "especie": "Charmander",
+        "imagen": "../img/pokemons/Charmander.webp",
+        "tipo": "fuego",
+        "id": 4
+    },
+    {
+        "nombre": "Cyndaquil",
+        "especie": "Cyndaquil",
+        "imagen": "../img/pokemons/Cyndaquil.webp",
+        "tipo": "fuego",
+        "id": 155
+    },
+    {
+        "nombre": "Fennekin",
+        "especie": "Fennekin",
+        "imagen": "../img/pokemons/Fennekin.webp",
+        "tipo": "fuego",
+        "id": 653
+    },
+    {
+        "nombre": "Litten",
+        "especie": "Litten",
+        "imagen": "../img/pokemons/Litten.webp",
+        "tipo": "fuego",
+        "id": 725
+    },
+    {
+        "nombre": "Squirtle",
+        "especie": "Squirtle",
+        "imagen": "../img/pokemons/Squirtle.webp",
+        "tipo": "agua",
+        "id": 7
+    },
+    {
+        "nombre": "Mudkip",
+        "especie": "Mudkip",
+        "imagen": "./img/pokemons/Mudkip.webp",
+        "tipo": "agua",
+        "id": 258
+    },
+    {
+        "nombre": "Oshawott",
+        "especie": "Oshawott",
+        "imagen": "../img/pokemons/Oshawott.webp",
+        "tipo": "agua",
+        "id": 501
+    },
+    {
+        "nombre": "Froakie",
+        "especie": "Froakie",
+        "imagen": "../img/pokemons/Froakie.webp",
+        "tipo": "agua",
+        "id": 656
+    },
+    {
+        "nombre": "Bulbasaur",
+        "especie": "Bulbasaur",
+        "imagen": "../img/pokemons/Bulbasaur.webp",
+        "tipo": "planta",
+        "id": 1
+    },
+    {
+        "nombre": "Turtwig",
+        "especie": "Turtwig",
+        "imagen": "../img/pokemons/Turtwig.webp",
+        "tipo": "planta",
+        "id": 387
+    },
+    {
+        "nombre": "Snivy",
+        "especie": "Snivy",
+        "imagen": "../img/pokemons/Snivy.webp",
+        "tipo": "planta",
+        "id": 495
+    },
+    {
+        "nombre": "Chespin",
+        "especie": "Chespin",
+        "imagen": "../img/pokemons/Chespin.webp",
+        "tipo": "planta",
+        "id": 650
+    },
+    {
+        "nombre": "Meowth",
+        "especie": "Meowth",
+        "imagen": "../img/pokemons/Meowth.webp",
+        "tipo": "normal",
+        "id": 52
+    },
+    {
+        "nombre": "Teddiursa",
+        "especie": "Teddiursa",
+        "imagen": "../img/pokemons/Teddiursa.webp",
+        "tipo": "normal",
+        "id": 216
+    },
+    {
+        "nombre": "Zigzagoon",
+        "especie": "Zigzagoon",
+        "imagen": "../img/pokemons/Zigzagoon.webp",
+        "tipo": "normal",
+        "id": 216
+    },
+    {
+        "nombre": "Minccino",
+        "especie": "Minccino",
+        "imagen": "../img/pokemons/Minccino.webp",
+        "tipo": "normal",
+        "id": 572
+    },
+
 ]
 
 const tFuego = pokemones.filter((Pokemon) => {
@@ -189,54 +309,87 @@ const tNormal = pokemones.filter((Pokemon) => {
     return (Pokemon.tipo === "normal")
 })
 
+//console.log(tFuego)
+//console.log(tAgua)
+//console.log(tNormal)
+//console.log(tPlanta)
 
-/*
+
 function creacionCartaPokemon() {
-    let pokeCard = document.getElementById("pokeCards")
-    pokemones.forEach((e) => {
+
+    let pokeCard = document.getElementById("pokeCard")
+
+    pokedex.forEach((e) => {
+
         let cartaCreada = `
         
-    <div class="card bg-dark  text-white">
-  <img src="${e.img}" class="card-img" alt="pokemon seleccionado">
-  <div class="card-img-overlay">
-    <h5 class="card-title">${e.nombre}</h5>
-    <p class="card-text">${e.especie}</p>
-    <p class="card-text">${e.tipo}</p>
-  </div>
-</div>
+    <<div class="col-12 col-md-4 mb-5 row justify-content-center">
+    <div class="card text-dark" style="width: 18rem;">
+        <img class="card-img-top" src="${e.imagen}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">${e.nombre}</h5>
+            <p class="card-text">${e.id}</p>
+            <p>${e.especie}</p>
+            <button class="btn btn-primary" onClick="">ELEGIR</button>
+        </div>
+    </div>
+    </div>
 `
-pokeCards.innerHTML += cartaCreada
+        pokeCard.innerHTML += cartaCreada
     });
 }
 
-*/
+
 //console.log(pokedex)
 //console.log(creacionCartaPokemon)
 //let plantilla = ` NOMBRE: ${pokedex.nombre} - especie ${pokedex.especie} - tipo ${pokedex.tipo}`
 
 function elegido() {
     if (elegir == 1) {
-       
+        const texto = document.createElement ("p")
+        texto.innerText = `felicidades ${entrenador.nombre} tu compañero pokemon es ${nombreElecciones[0]}`
+        texto.innerText =`su pokedex se relleno con el siguiente pokemon ${pokedex[0].nombre}`
+        console.log(texto)
+        container.append(texto)
         
-        console.log(" felicidades " + entrenador.nombre + " " + " tu compañero pokemon es " + nombreElecciones[0])
-        console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
-        console.log(pokedex[0])
-        let plantilla = `
-        NOMBRE: ${Pokemon.nombre} - especie ${Pokemon.especie} - tipo ${Pokemon.tipo}
-        `
-        console.log(plantilla)
+        //console.log(" felicidades " + entrenador.nombre + " " + " tu compañero pokemon es " + nombreElecciones[0])
+        //console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
+        //console.log(pokedex[0])
+        // let plantilla = `
+        //NOMBRE: ${pokedex[0].nombre} - especie ${pokedex.especie} - tipo ${pokedex.tipo}
+        //`
+        //console.log(plantilla)
+
     } else if (elegir == 2) {
-        console.log(" felicidades " + entrenador.nombre + " " + " tu compañero pokemon es " + nombreElecciones[1])
-        console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
-        console.log(pokedex[1])
+        const texto = document.createElement ("p")
+        texto.innerText = `felicidades ${entrenador.nombre} tu compañero pokemon es ${nombreElecciones[1]}`
+        texto.innerText =`su pokedex se relleno con el siguiente pokemon ${pokedex[1].nombre}`
+        console.log(texto)
+        container.append(texto)
+
+        //console.log(" felicidades " + entrenador.nombre + " " + " tu compañero pokemon es " + nombreElecciones[1])
+        //console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
+        //console.log(pokedex[1])
     } else if (elegir == 3) {
-        console.log(" felicidades " + entrenador.nombre + " " + " tu compañero pokemon es " + nombreElecciones[2])
-        console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
-        console.log(pokedex[2])
+        const texto = document.createElement ("p")
+        texto.innerText = `felicidades ${entrenador.nombre} tu compañero pokemon es ${nombreElecciones[2]}`
+        texto.innerText =`su pokedex se relleno con el siguiente pokemon ${pokedex[2].nombre}`
+        console.log(texto)
+        container.append(texto)
+
+        //console.log(" felicidades " + entrenador.nombre + " " + " tu compañero pokemon es " + nombreElecciones[2])
+        //console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
+        //console.log(pokedex[2])
     } else if (elegir == 4) {
-        console.log(" felicidades " + entrenador.nombre + " " + " tu compañero pokemon es " + nombreElecciones[3])
-        console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
-        console.log(pokedex[3])
+        const texto = document.createElement ("p")
+        texto.innerText = `felicidades ${entrenador.nombre} tu compañero pokemon es ${nombreElecciones[3]}`
+        texto.innerText =`su pokedex se relleno con el siguiente pokemon ${pokedex[3].nombre}`
+        console.log(texto)
+        container.append(texto)
+
+        //console.log(" felicidades " + entrenador.nombre + " " + " tu compañero pokemon es " + nombreElecciones[3])
+        //console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
+        //console.log(pokedex[3])
     } else {
         alert("ingrese valores validos")
     }
@@ -269,7 +422,7 @@ if (desiciones.clima === 1 && desiciones.lugar === 1) {
     /*creacionCartaPokemon()*/
     elegir = Number(prompt("Felicidades tus posibles elecciones son " + nombreElecciones + " Elija con numeros " + " 1: " + nombreElecciones[0] + " 2: " + nombreElecciones[1] + " 3: " + nombreElecciones[2] + " 4: " + nombreElecciones[3]))
     elegido()
-
+   //creacionCartaPokemon()
 } else if (desiciones.clima === 2 && desiciones.lugar === 2) {
 
     nombreElecciones.push(tFuego[0].nombre)
