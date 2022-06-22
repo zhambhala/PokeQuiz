@@ -142,6 +142,7 @@ let elegir
 const nombreElecciones = []
 
 /* ejemplo de class con constructor
+
 class Pokemon {
 
     constructor(nombre, especie, imagen, tipo, id) {
@@ -174,6 +175,7 @@ class Pokemon {
 
 }
 */
+
 const pokemones = [
 
     {
@@ -351,6 +353,13 @@ function elegido() {
         texto.innerText =`su pokedex se relleno con el siguiente pokemon ${pokedex[0].nombre}`
         console.log(texto)
         container.append(texto)
+        lista1.append(pokedex[0].nombre)
+        lista2.append(pokedex[0].especie)
+        //lista3.innerHTML=`<img src=${pokedex[0].img}/>`
+        lista3.innerHTML=`<img src="./img/pokemons/Squirtle.webp"/>`
+        //lista3.append `../img/pokemons/Squirtle.webp`
+        lista4.append(pokedex[0].tipo)
+        lista5.append(pokedex[0].id)
         
         //console.log(" felicidades " + entrenador.nombre + " " + " tu compañero pokemon es " + nombreElecciones[0])
         //console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
@@ -405,6 +414,13 @@ const desiciones = {
     lugar: Number(prompt("elija el lugar que mas le guste con numeros, 1=lagos, 2=montañas")),
 }
 
+const elecPosibles = (array1, array2) => {
+    array1.push(array2[0])
+    array1.push(array2[1])
+    array1.push(array2[2])
+    array1.push(array2[3])
+  }
+
 if (desiciones.clima === 1 && desiciones.lugar === 1) {
     //let pick = document.getElementById ("pokeCards")
 
@@ -412,10 +428,17 @@ if (desiciones.clima === 1 && desiciones.lugar === 1) {
     nombreElecciones.push(tAgua[1].nombre)
     nombreElecciones.push(tAgua[2].nombre)
     nombreElecciones.push(tAgua[3].nombre)
-    pokedex.push(tAgua[0])
-    pokedex.push(tAgua[1])
-    pokedex.push(tAgua[2])
-    pokedex.push(tAgua[3])
+
+    
+    
+    elecPosibles(pokedex,tAgua)
+    //console.log(elecPosibles)
+    //console.log(pokedex)
+
+   // pokedex.push(tAgua[0])
+    //pokedex.push(tAgua[1])
+    //pokedex.push(tAgua[2])
+    //pokedex.push(tAgua[3])
 
     //document.body.append(pokedex.imagen)
     //pick.innerHTML = pokedex.imagen
