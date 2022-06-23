@@ -179,116 +179,116 @@ class Pokemon {
 const pokemones = [
 
     {
-        "nombre": "Charmander",
-        "especie": "Charmander",
-        "imagen": "../img/pokemons/Charmander.webp",
-        "tipo": "fuego",
-        "id": 4
+        nombre: "Charmander",
+        especie: "Charmander",
+        imagen: "./assets/img/pokemons/Charmander.webp",
+        tipo: "fuego",
+        id: 4
     },
     {
-        "nombre": "Cyndaquil",
-        "especie": "Cyndaquil",
-        "imagen": "../img/pokemons/Cyndaquil.webp",
-        "tipo": "fuego",
-        "id": 155
+        nombre: "Cyndaquil",
+        especie: "Cyndaquil",
+        imagen: "./assets/img/pokemons/Cyndaquil.webp",
+        tipo: "fuego",
+        id: 155
     },
     {
-        "nombre": "Fennekin",
-        "especie": "Fennekin",
-        "imagen": "../img/pokemons/Fennekin.webp",
-        "tipo": "fuego",
-        "id": 653
+        nombre: "Fennekin",
+        especie: "Fennekin",
+        imagen: "./assets/img/pokemons/Fennekin.webp",
+        tipo: "fuego",
+        id: 653
     },
     {
-        "nombre": "Litten",
-        "especie": "Litten",
-        "imagen": "../img/pokemons/Litten.webp",
-        "tipo": "fuego",
-        "id": 725
+        nombre: "Litten",
+        especie: "Litten",
+        imagen: "./assets/img/pokemons/Litten.webp",
+        tipo: "fuego",
+        id: 725
     },
     {
-        "nombre": "Squirtle",
-        "especie": "Squirtle",
-        "imagen": "../img/pokemons/Squirtle.webp",
-        "tipo": "agua",
-        "id": 7
+        nombre: "Squirtle",
+        especie: "Squirtle",
+        imagen: "./assets/img/pokemons/Squirtle.webp",
+        tipo: "agua",
+        id: 7
     },
     {
-        "nombre": "Mudkip",
-        "especie": "Mudkip",
-        "imagen": "./img/pokemons/Mudkip.webp",
-        "tipo": "agua",
-        "id": 258
+        nombre: "Mudkip",
+        especie: "Mudkip",
+        imagen: "./assets/img/pokemons/Mudkip.webp",
+        tipo: "agua",
+        id: 258
     },
     {
-        "nombre": "Oshawott",
-        "especie": "Oshawott",
-        "imagen": "../img/pokemons/Oshawott.webp",
-        "tipo": "agua",
-        "id": 501
+        nombre: "Oshawott",
+        especie: "Oshawott",
+        imagen: "./assets/img/pokemons/Oshawott.webp",
+        tipo: "agua",
+        id: 501
     },
     {
-        "nombre": "Froakie",
-        "especie": "Froakie",
-        "imagen": "../img/pokemons/Froakie.webp",
-        "tipo": "agua",
-        "id": 656
+        nombre: "Froakie",
+        especie: "Froakie",
+        imagen: "./assets/img/pokemons/Froakie.webp",
+        tipo: "agua",
+        id: 656
     },
     {
-        "nombre": "Bulbasaur",
-        "especie": "Bulbasaur",
-        "imagen": "../img/pokemons/Bulbasaur.webp",
-        "tipo": "planta",
-        "id": 1
+        nombre: "Bulbasaur",
+        especie: "Bulbasaur",
+        imagen: "./assets/img/pokemons/Bulbasaur.webp",
+        tipo: "planta",
+        id: 1
     },
     {
-        "nombre": "Turtwig",
-        "especie": "Turtwig",
-        "imagen": "../img/pokemons/Turtwig.webp",
-        "tipo": "planta",
-        "id": 387
+        nombre: "Turtwig",
+        especie: "Turtwig",
+        imagen: "./assets/img/pokemons/Turtwig.webp",
+        tipo: "planta",
+        id: 387
     },
     {
-        "nombre": "Snivy",
-        "especie": "Snivy",
-        "imagen": "../img/pokemons/Snivy.webp",
-        "tipo": "planta",
-        "id": 495
+        nombre: "Snivy",
+        especie: "Snivy",
+        imagen: "./assets/img/pokemons/Snivy.webp",
+        tipo: "planta",
+        id: 495
     },
     {
-        "nombre": "Chespin",
-        "especie": "Chespin",
-        "imagen": "../img/pokemons/Chespin.webp",
-        "tipo": "planta",
-        "id": 650
+        nombre: "Chespin",
+        especie: "Chespin",
+        imagen: "./assets/img/pokemons/Chespin.webp",
+        tipo: "planta",
+        id: 650
     },
     {
-        "nombre": "Meowth",
-        "especie": "Meowth",
-        "imagen": "../img/pokemons/Meowth.webp",
-        "tipo": "normal",
-        "id": 52
+        nombre: "Meowth",
+        especie: "Meowth",
+        imagen: "./assets/img/pokemons/Meowth.webp",
+        tipo: "normal",
+        id: 52
     },
     {
-        "nombre": "Teddiursa",
-        "especie": "Teddiursa",
-        "imagen": "../img/pokemons/Teddiursa.webp",
-        "tipo": "normal",
-        "id": 216
+        nombre: "Teddiursa",
+        especie: "Teddiursa",
+        imagen: "./assets/img/pokemons/Teddiursa.webp",
+        tipo: "normal",
+        id: 216
     },
     {
-        "nombre": "Zigzagoon",
-        "especie": "Zigzagoon",
-        "imagen": "../img/pokemons/Zigzagoon.webp",
-        "tipo": "normal",
-        "id": 216
+        nombre: "Zigzagoon",
+        especie: "Zigzagoon",
+        imagen: "./assets/img/pokemons/Zigzagoon.webp",
+        tipo: "normal",
+        id: 216
     },
     {
-        "nombre": "Minccino",
-        "especie": "Minccino",
-        "imagen": "../img/pokemons/Minccino.webp",
-        "tipo": "normal",
-        "id": 572
+        nombre: "Minccino",
+        especie: "Minccino",
+        imagen: "./assets/img/pokemons/Minccino.webp",
+        tipo: "normal",
+        id: 572
     },
 
 ]
@@ -325,7 +325,7 @@ function creacionCartaPokemon() {
 
         let cartaCreada = `
         
-    <<div class="col-12 col-md-4 mb-5 row justify-content-center">
+    <div class="col-12 col-md-4 mb-0 p-0 row justify-content-center">
     <div class="card text-dark" style="width: 18rem;">
         <img class="card-img-top" src="${e.imagen}" alt="Card image cap">
         <div class="card-body">
@@ -351,23 +351,25 @@ function elegido() {
         const texto = document.createElement ("p")
         texto.innerText = `felicidades ${entrenador.nombre} tu compañero pokemon es ${nombreElecciones[0]}`
         texto.innerText =`su pokedex se relleno con el siguiente pokemon ${pokedex[0].nombre}`
+
+
+
+       /* prueba de metodos Inner, y plantilla
         console.log(texto)
         container.append(texto)
         lista1.append(pokedex[0].nombre)
         lista2.append(pokedex[0].especie)
-        //lista3.innerHTML=`<img src=${pokedex[0].img}/>`
-        lista3.innerHTML=`<img src="./img/pokemons/Squirtle.webp"/>`
-        //lista3.append `../img/pokemons/Squirtle.webp`
+        lista3.innerHTML=`<img src="./assets/img/pokemons/Squirtle.webp"/>`
         lista4.append(pokedex[0].tipo)
         lista5.append(pokedex[0].id)
-        
-        //console.log(" felicidades " + entrenador.nombre + " " + " tu compañero pokemon es " + nombreElecciones[0])
-        //console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
-        //console.log(pokedex[0])
-        // let plantilla = `
-        //NOMBRE: ${pokedex[0].nombre} - especie ${pokedex.especie} - tipo ${pokedex.tipo}
-        //`
-        //console.log(plantilla)
+        console.log(" felicidades " + entrenador.nombre + " " + " tu compañero pokemon es " + nombreElecciones[0])
+        console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
+        console.log(pokedex[0])
+        let plantilla = `
+        NOMBRE: ${pokedex[0].nombre} - especie ${pokedex.especie} - tipo ${pokedex.tipo}
+        `
+        console.log(plantilla)
+        */
 
     } else if (elegir == 2) {
         const texto = document.createElement ("p")
@@ -445,7 +447,7 @@ if (desiciones.clima === 1 && desiciones.lugar === 1) {
     /*creacionCartaPokemon()*/
     elegir = Number(prompt("Felicidades tus posibles elecciones son " + nombreElecciones + " Elija con numeros " + " 1: " + nombreElecciones[0] + " 2: " + nombreElecciones[1] + " 3: " + nombreElecciones[2] + " 4: " + nombreElecciones[3]))
     elegido()
-   //creacionCartaPokemon()
+   creacionCartaPokemon()
 } else if (desiciones.clima === 2 && desiciones.lugar === 2) {
 
     nombreElecciones.push(tFuego[0].nombre)

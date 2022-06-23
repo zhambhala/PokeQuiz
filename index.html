@@ -19,30 +19,70 @@
 </head>
 
 <body>
-<header class="col-12 bg-primary">
-  <h1>Poke Preguntas bienvenido</h1>
-</header>
-<main class="container-fluid col-12 bg-custom-main vh-100" >
-  <section id="container" class="container col-12 row">
-     <h2 class="bg-danger">por el momento solo tenemos la lista de pokemon que serian compatibles con usted</h2>
-     <ul>
-    <li id="lista1"></li>
-    <li id="lista2"></li>
-    <li id="lista3">
-      <img src="./assets/img/pokemons/Minccino.webp" height="30px" width="30px" alt="">
-    </li>
-    <li id="lista4"></li>
-    <li id="lista5"></li>
-    </ul>
-     <div id="pokeCard">
-     
-     </div>
-  </section>
-</main>
+  <header class="col-12 bg-primary">
+    <h1>Poke Preguntas bienvenido</h1>
+  </header>
 
-<footer class="col-12 bgCustomColor-footer ">
- <h3 id="titulo-3">de fans para fans</h3>
-</footer>
+  <main class="container-fluid m-0 p-0 col row bg-custom-main vh-100">
+    <div class="m-0 p-0 vh-100">
+      <section id="container-fluid col-12 col-lg-12 mb-2 p-0" class="container col-12 row">
+        <div>
+          <h2 class="bg-danger">por el momento solo tenemos la lista de pokemon que serian compatibles con usted</h2>
+          <form action="" id="form-card" class="container flex d-flex">
+            <div class="form__section ">
+              <div class="col container-fluid row form__section ">
+                <div class="col container-fluid row form__section">
+                  <div class="col container-fluid row ">
+
+                    <input type="text" class="form-input" placeholder="nombre">
+                    <select class="col" aria-label="Paisaje">
+                      <option class="col" selected>¿ Cual paisaje te gusta mas ?</option>
+                      <option id="Lagos" class="col" value="Lagos">Lagos</option>
+                      <option id="Montañas" class="col" value="Montañas">Montañas</option>
+                    </select>
+                    <select class="col" aria-label="Clima">
+                      <option class="col" selected>¿ Cual clima te gusta mas ?</option>
+                      <option id="Lluvioso" class="col" value="Lluvioso">Lluvioso</option>
+                      <option id="Soleado" class="col" value="Soleado">Soleado</option>
+                    </select>
+
+                    <input type="submit" value="Enviar" />
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+      <!---ejemplo de listas con js
+      <ul>
+        <li id="lista1"></li>
+        <li id="lista2"></li>
+        <li id="lista3">
+      <img id="img-pokemon" height="30px" width="30px" alt=""></li>
+       <li id="lista4"></li>
+       <li id="lista5"></li>
+        </ul>
+        -->
+      <section class="container row col vh-100 mt-2 mb-2" >
+        <div class=" container col flex d-flex mt-2 mb-2" id="pokeCard"></div>
+
+      </section>
+    </div>
+
+  </main>
+
+  <footer class="container-fluid vw-100 col-12 col-lg-12 bgCustomColor-footer mt-2 mb-2 ">
+    <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+        </a>
+        <span class="text-muted fs-3">©Bruno A.T Zabala 2022</span>
+      </div>
+    </div>
+  </footer>
 
   <script src="https://kit.fontawesome.com/8e43b03d4c.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -52,4 +92,3 @@
 </body>
 
 </html>
-<vscode-pets class="start"></vscode-pets>
