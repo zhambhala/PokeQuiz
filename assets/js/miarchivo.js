@@ -140,6 +140,12 @@ console.log(titulo3.innerText)
 let pokedex = []
 let elegir
 const nombreElecciones = []
+const formulario = document.querySelector('#form')
+const inputNombre = document.querySelector('#form-nombre')
+const inputPaisajes = document.querySelector('#form-paisajes')
+const inputClimas = document.querySelector('#form-climas')
+const btnEnviar = document.querySelector('#btn-elegir')
+
 
 /* ejemplo de class con constructor
 
@@ -311,11 +317,41 @@ const tNormal = pokemones.filter((Pokemon) => {
     return (Pokemon.tipo === "normal")
 })
 
+/*const desiciones = {
+    clima: Number(prompt("elija el clima que mas le guste con numeros, 1=lluvioso, 2=soleado")),
+    lugar: Number(prompt("elija el lugar que mas le guste con numeros, 1=lagos, 2=montañas")),
+}
+*/
+
+
+
+
 //console.log(tFuego)
 //console.log(tAgua)
 //console.log(tNormal)
 //console.log(tPlanta)
+// -------------------funciones----------
+const elecPosibles = (array1, array2) => {
+    array1.push(array2[0])
+    array1.push(array2[1])
+    array1.push(array2[2])
+    array1.push(array2[3])
+  }
 
+formulario.addEventListener("submit", (e) => {
+    e.preventDefault()
+    console.log (e)
+    
+    const entrenador = {
+        nombre: inputNombre.value
+    }
+    const desiciones = {
+        clima: inputClimas.value,
+        lugar: inputPaisajes.value
+    } 
+    console.log(entrenador)
+    console.log(desiciones)
+    })
 
 function creacionCartaPokemon() {
 
@@ -325,8 +361,8 @@ function creacionCartaPokemon() {
 
         let cartaCreada = `
         
-    <div class="col-12 col-md-4 mb-0 p-0 row justify-content-center">
-    <div class="card text-dark" style="width: 18rem;">
+    <div class="col-12 col-md-4 m-2 p-0 row justify-content-center">
+    <div class="card text-dark" style="width: 14rem;">
         <img class="card-img-top" src="${e.imagen}" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">${e.nombre}</h5>
@@ -349,11 +385,8 @@ function creacionCartaPokemon() {
 function elegido() {
     if (elegir == 1) {
         const texto = document.createElement ("p")
-        texto.innerText = `felicidades ${entrenador.nombre} tu compañero pokemon es ${nombreElecciones[0]}`
-        texto.innerText =`su pokedex se relleno con el siguiente pokemon ${pokedex[0].nombre}`
-
-
-
+       // texto.innerText = `felicidades ${entrenador.nombre} tu compañero pokemon es ${nombreElecciones[0]}`
+        //texto.innerText =`su pokedex se relleno con el siguiente pokemon ${pokedex[0].nombre}`
        /* prueba de metodos Inner, y plantilla
         console.log(texto)
         container.append(texto)
@@ -402,29 +435,16 @@ function elegido() {
         //console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
         //console.log(pokedex[3])
     } else {
-        alert("ingrese valores validos")
+       
     }
 }
 
-const entrenador = {
-    nombre: prompt("coloque su nombre"),
-    edad: Number(prompt("coloque su edad")),
-}
 
-const desiciones = {
-    clima: Number(prompt("elija el clima que mas le guste con numeros, 1=lluvioso, 2=soleado")),
-    lugar: Number(prompt("elija el lugar que mas le guste con numeros, 1=lagos, 2=montañas")),
-}
 
-const elecPosibles = (array1, array2) => {
-    array1.push(array2[0])
-    array1.push(array2[1])
-    array1.push(array2[2])
-    array1.push(array2[3])
-  }
 
-if (desiciones.clima === 1 && desiciones.lugar === 1) {
-    //let pick = document.getElementById ("pokeCards")
+
+if (btnEnviar == SubmitEvent && inputClimas.value === "Lluvioso" && inputPaisajes.value === "Lagos") {
+    console.log ("formulario funcionaaa")
 
     nombreElecciones.push(tAgua[0].nombre)
     nombreElecciones.push(tAgua[1].nombre)
@@ -448,7 +468,7 @@ if (desiciones.clima === 1 && desiciones.lugar === 1) {
     elegir = Number(prompt("Felicidades tus posibles elecciones son " + nombreElecciones + " Elija con numeros " + " 1: " + nombreElecciones[0] + " 2: " + nombreElecciones[1] + " 3: " + nombreElecciones[2] + " 4: " + nombreElecciones[3]))
     elegido()
    creacionCartaPokemon()
-} else if (desiciones.clima === 2 && desiciones.lugar === 2) {
+} else if (inputClimas.value == "Lluvioso" && inputPaisajes.value == "Lagos") {
 
     nombreElecciones.push(tFuego[0].nombre)
     nombreElecciones.push(tFuego[1].nombre)
@@ -461,7 +481,7 @@ if (desiciones.clima === 1 && desiciones.lugar === 1) {
     elegir = Number(prompt("Felicidades tus posibles elecciones son " + nombreElecciones + " Elija con numeros " + " 1: " + nombreElecciones[0] + " 2: " + nombreElecciones[1] + " 3: " + nombreElecciones[2] + " 4: " + nombreElecciones[3]))
     elegido()
 
-} else if (desiciones.clima === 2 && desiciones.lugar === 1) {
+} else if (inputClimas.value == "Soleado" && inputPaisajes.value == "Montañas") {
 
     nombreElecciones.push(tPlanta[0].nombre)
     nombreElecciones.push(tPlanta[1].nombre)
@@ -474,7 +494,7 @@ if (desiciones.clima === 1 && desiciones.lugar === 1) {
     elegir = Number(prompt("Felicidades tus posibles elecciones son " + nombreElecciones + " Elija con numeros " + " 1: " + nombreElecciones[0] + " 2: " + nombreElecciones[1] + " 3: " + nombreElecciones[2] + " 4: " + nombreElecciones[3]))
     elegido()
 
-} else if (desiciones.clima === 1 && desiciones.lugar === 2) {
+} else if (inputClimas.value == "Lluvioso" && inputPaisajes.value == "Montañas") {
 
     nombreElecciones.push(tNormal[0].nombre)
     nombreElecciones.push(tNormal[1].nombre)
@@ -487,5 +507,5 @@ if (desiciones.clima === 1 && desiciones.lugar === 1) {
     elegir = Number(prompt("Felicidades tus posibles elecciones son " + nombreElecciones + " Elija con numeros " + " 1: " + nombreElecciones[0] + " 2: " + nombreElecciones[1] + " 3: " + nombreElecciones[2] + " 4: " + nombreElecciones[3]))
     elegido()
 } else {
-    alert("no dio valores validos")
+    
 }
