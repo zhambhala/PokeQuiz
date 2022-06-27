@@ -5,8 +5,30 @@
 .bgCustomColor-footer{
 background: coral ;
 }
-cBlack{
-  color: black;
+.cBlack{
+  color: rgb(0, 0, 0);
   font-style:italic;
   font-weight: bold;
 }
+.bg-custom-agua{
+  background:linear-gradient(to bottom, blue, blueviolet, rgb(171, 86, 250))
+  
+}
+.bg-custom-fuego{
+  background:linear-gradient(to bottom, rgb(109, 19, 19), rgb(194, 53, 53), rgb(231, 59, 102))
+  
+}
+.bg-custom-planta{
+  background:linear-gradient(to bottom, rgb(5, 75, 5), rgb(36, 95, 36), rgb(54, 10, 10))
+  
+}
+.bg-custom-normal{
+  background:linear-gradient(to bottom, rgb(46, 44, 44), rgb(136, 131, 131), rgb(161, 159, 159))
+  
+}
+.btn-custom-btn{
+  background: linear-gradient(to bottom, rgb(37, 17, 17), rgb(68, 47, 47), white );
+  color: coral;
+  border-radius: 100px;
+}
+

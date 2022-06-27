@@ -142,11 +142,11 @@ let elegir
 const nombreElecciones = []
 const formulario = document.querySelector('#form')
 const inputNombre = document.querySelector('#form-nombre')
-const inputPaisajes = document.querySelector('#form-paisajes')
-const inputClimas = document.querySelector('#form-climas')
-const btnEnviar = document.querySelector('#btn-elegir')
-
-
+const btnEnviar = document.querySelector('#form-btn-elegir')
+const formPaisajes = document.querySelector('#formPaisajes')
+const formClimas = document.querySelector('#formClimas')
+const pokeSelection = document.querySelector('#pokeCard')
+let entrenador = [] 
 /* ejemplo de class con constructor
 
 class Pokemon {
@@ -316,16 +316,11 @@ const tPlanta = pokemones.filter((Pokemon) => {
 const tNormal = pokemones.filter((Pokemon) => {
     return (Pokemon.tipo === "normal")
 })
-
 /*const desiciones = {
     clima: Number(prompt("elija el clima que mas le guste con numeros, 1=lluvioso, 2=soleado")),
     lugar: Number(prompt("elija el lugar que mas le guste con numeros, 1=lagos, 2=montañas")),
 }
 */
-
-
-
-
 //console.log(tFuego)
 //console.log(tAgua)
 //console.log(tNormal)
@@ -336,46 +331,66 @@ const elecPosibles = (array1, array2) => {
     array1.push(array2[1])
     array1.push(array2[2])
     array1.push(array2[3])
-  }
+}
+const elecNombresPosibles = (array1, array2) => {
+    array1.push(array2[0].nombre)
+    array1.push(array2[1].nombre)
+    array1.push(array2[2].nombre)
+    array1.push(array2[3].nombre)
+}
+//------------
+function elegirCamino() {
+    var selectWay = document.getElementById("formPaisajes").value;
+    return selectWay
+}
+function elegirClima() {
+    var selectWeather = document.getElementById("formClimas").value;
+    return selectWeather
+}
 
-formulario.addEventListener("submit", (e) => {
+const formOfTrainer = formulario.addEventListener('submit', (e) => {
     e.preventDefault()
-    console.log (e)
+    console.log(e)
+     //console.log(e.target[0])
+     //console.log("submit del form")
     
-    const entrenador = {
-        nombre: inputNombre.value
+    const entrenadorInfo = {
+        nombre: inputNombre.value,
+        paisaje: formPaisajes.value,
+        clima: formClimas.value
     }
-    const desiciones = {
-        clima: inputClimas.value,
-        lugar: inputPaisajes.value
-    } 
-    console.log(entrenador)
-    console.log(desiciones)
-    })
+    if (btnEnviar == onsubmit) {
+        //alert("hola")
+        entrenador.push(entrenadorInfo)
+    }
+    //console.log(entrenadorInfo)
+    //console.log(entrenador)
+    
+})
+//--------------------
 
-function creacionCartaPokemon() {
-
-    let pokeCard = document.getElementById("pokeCard")
-
+function CrecionCartaPokemon() {
     pokedex.forEach((e) => {
-
-        let cartaCreada = `
-        
-    <div class="col-12 col-md-4 m-2 p-0 row justify-content-center">
-    <div class="card text-dark" style="width: 14rem;">
+        let pokeCards = document.createElement('pokeCards')
+        pokeCards.innerHTML = `
+    <div class="m-1 justify-content-center">
+    <div class="card  text-dark" style="width: 14rem;">
         <img class="card-img-top" src="${e.imagen}" alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title">${e.nombre}</h5>
-            <p class="card-text">${e.id}</p>
+            <h5 class="card-title cBlack">${e.nombre}</h5>
+            <p class="card-text cBlack">numero en pokedex ${e.id}</p>
             <p>${e.especie}</p>
-            <button class="btn btn-primary" onClick="">ELEGIR</button>
+            <button class="btn btn-custom-btn" onClick="elegirPokemon(${e.id})">ELEGIR</button>
         </div>
     </div>
     </div>
 `
-        pokeCard.innerHTML += cartaCreada
-    });
+        pokeSelection.append(pokeCards)
+
+    })
 }
+
+
 
 
 //console.log(pokedex)
@@ -383,31 +398,31 @@ function creacionCartaPokemon() {
 //let plantilla = ` NOMBRE: ${pokedex.nombre} - especie ${pokedex.especie} - tipo ${pokedex.tipo}`
 
 function elegido() {
-    if (elegir == 1) {
-        const texto = document.createElement ("p")
-       // texto.innerText = `felicidades ${entrenador.nombre} tu compañero pokemon es ${nombreElecciones[0]}`
+    if (true) {
+        const texto = document.createElement("p")
+        // texto.innerText = `felicidades ${entrenador.nombre} tu compañero pokemon es ${nombreElecciones[0]}`
         //texto.innerText =`su pokedex se relleno con el siguiente pokemon ${pokedex[0].nombre}`
-       /* prueba de metodos Inner, y plantilla
-        console.log(texto)
-        container.append(texto)
-        lista1.append(pokedex[0].nombre)
-        lista2.append(pokedex[0].especie)
-        lista3.innerHTML=`<img src="./assets/img/pokemons/Squirtle.webp"/>`
-        lista4.append(pokedex[0].tipo)
-        lista5.append(pokedex[0].id)
-        console.log(" felicidades " + entrenador.nombre + " " + " tu compañero pokemon es " + nombreElecciones[0])
-        console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
-        console.log(pokedex[0])
-        let plantilla = `
-        NOMBRE: ${pokedex[0].nombre} - especie ${pokedex.especie} - tipo ${pokedex.tipo}
-        `
-        console.log(plantilla)
-        */
+        /* prueba de metodos Inner, y plantilla
+         console.log(texto)
+         container.append(texto)
+         lista1.append(pokedex[0].nombre)
+         lista2.append(pokedex[0].especie)
+         lista3.innerHTML=`<img src="./assets/img/pokemons/Squirtle.webp"/>`
+         lista4.append(pokedex[0].tipo)
+         lista5.append(pokedex[0].id)
+         console.log(" felicidades " + entrenador.nombre + " " + " tu compañero pokemon es " + nombreElecciones[0])
+         console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
+         console.log(pokedex[0])
+         let plantilla = `
+         NOMBRE: ${pokedex[0].nombre} - especie ${pokedex.especie} - tipo ${pokedex.tipo}
+         `
+         console.log(plantilla)
+         */
 
     } else if (elegir == 2) {
-        const texto = document.createElement ("p")
+        const texto = document.createElement("p")
         texto.innerText = `felicidades ${entrenador.nombre} tu compañero pokemon es ${nombreElecciones[1]}`
-        texto.innerText =`su pokedex se relleno con el siguiente pokemon ${pokedex[1].nombre}`
+        texto.innerText = `su pokedex se relleno con el siguiente pokemon ${pokedex[1].nombre}`
         console.log(texto)
         container.append(texto)
 
@@ -415,9 +430,9 @@ function elegido() {
         //console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
         //console.log(pokedex[1])
     } else if (elegir == 3) {
-        const texto = document.createElement ("p")
+        const texto = document.createElement("p")
         texto.innerText = `felicidades ${entrenador.nombre} tu compañero pokemon es ${nombreElecciones[2]}`
-        texto.innerText =`su pokedex se relleno con el siguiente pokemon ${pokedex[2].nombre}`
+        texto.innerText = `su pokedex se relleno con el siguiente pokemon ${pokedex[2].nombre}`
         console.log(texto)
         container.append(texto)
 
@@ -425,9 +440,9 @@ function elegido() {
         //console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
         //console.log(pokedex[2])
     } else if (elegir == 4) {
-        const texto = document.createElement ("p")
+        const texto = document.createElement("p")
         texto.innerText = `felicidades ${entrenador.nombre} tu compañero pokemon es ${nombreElecciones[3]}`
-        texto.innerText =`su pokedex se relleno con el siguiente pokemon ${pokedex[3].nombre}`
+        texto.innerText = `su pokedex se relleno con el siguiente pokemon ${pokedex[3].nombre}`
         console.log(texto)
         container.append(texto)
 
@@ -435,29 +450,30 @@ function elegido() {
         //console.log("SU POKEDEX SE RELLENO CON EL SIGUIENTE POKEMON")
         //console.log(pokedex[3])
     } else {
-       
+
     }
+    return elegido
 }
 
 
 
 
 
-if (btnEnviar == SubmitEvent && inputClimas.value === "Lluvioso" && inputPaisajes.value === "Lagos") {
-    console.log ("formulario funcionaaa")
-
-    nombreElecciones.push(tAgua[0].nombre)
-    nombreElecciones.push(tAgua[1].nombre)
-    nombreElecciones.push(tAgua[2].nombre)
-    nombreElecciones.push(tAgua[3].nombre)
-
-    
-    
-    elecPosibles(pokedex,tAgua)
+if (true) {
+    console.log(entrenador)
+    /*
+        nombreElecciones.push(tAgua[0].nombre)
+        nombreElecciones.push(tAgua[1].nombre)
+        nombreElecciones.push(tAgua[2].nombre)
+        nombreElecciones.push(tAgua[3].nombre)
+    */
+    elecNombresPosibles(nombreElecciones, tAgua)
+    //console.log(elecNombresPosibles)
+    elecPosibles(pokedex, tAgua)
     //console.log(elecPosibles)
     //console.log(pokedex)
-
-   // pokedex.push(tAgua[0])
+    CrecionCartaPokemon()
+    // pokedex.push(tAgua[0])
     //pokedex.push(tAgua[1])
     //pokedex.push(tAgua[2])
     //pokedex.push(tAgua[3])
@@ -465,10 +481,9 @@ if (btnEnviar == SubmitEvent && inputClimas.value === "Lluvioso" && inputPaisaje
     //document.body.append(pokedex.imagen)
     //pick.innerHTML = pokedex.imagen
     /*creacionCartaPokemon()*/
-    elegir = Number(prompt("Felicidades tus posibles elecciones son " + nombreElecciones + " Elija con numeros " + " 1: " + nombreElecciones[0] + " 2: " + nombreElecciones[1] + " 3: " + nombreElecciones[2] + " 4: " + nombreElecciones[3]))
+    //elegir = Number(prompt("Felicidades tus posibles elecciones son " + nombreElecciones + " Elija con numeros " + " 1: " + nombreElecciones[0] + " 2: " + nombreElecciones[1] + " 3: " + nombreElecciones[2] + " 4: " + nombreElecciones[3]))
     elegido()
-   creacionCartaPokemon()
-} else if (inputClimas.value == "Lluvioso" && inputPaisajes.value == "Lagos") {
+} else if (false) {
 
     nombreElecciones.push(tFuego[0].nombre)
     nombreElecciones.push(tFuego[1].nombre)
@@ -507,5 +522,5 @@ if (btnEnviar == SubmitEvent && inputClimas.value === "Lluvioso" && inputPaisaje
     elegir = Number(prompt("Felicidades tus posibles elecciones son " + nombreElecciones + " Elija con numeros " + " 1: " + nombreElecciones[0] + " 2: " + nombreElecciones[1] + " 3: " + nombreElecciones[2] + " 4: " + nombreElecciones[3]))
     elegido()
 } else {
-    
+
 }

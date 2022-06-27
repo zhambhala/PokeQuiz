@@ -27,7 +27,7 @@
     <div class="m-0 p-0 vh-100">
       <section id="container-fluid col-12 col-lg-12 mb-2 p-0" class="container col-12 row">
         <div>
-          <h2 class="bg-danger">por el momento solo tenemos la lista de pokemon que serian compatibles con usted</h2>
+          <h2 class="bg-danger">a continuacion dinos tu nombre, el paisaje que mas te guste y el clima </h2>
           <form action="" id="form" class="container flex d-flex">
             <div class="form__section ">
               <div class="col container-fluid row form__section ">
@@ -35,15 +35,13 @@
                   <div class="col container-fluid row ">
 
                     <input type="text" id="form-nombre" class="form-input" placeholder="nombre">
-                    <select class="col" id="form-paisajes" aria-label="Paisaje">
-                      <option class="col" selected>¿ Cual paisaje te gusta mas ?</option>
-                      <option id="Lagos" class="col" value="Lagos">Lagos</option>
-                      <option id="Montañas" class="col" value="Montañas">Montañas</option>
+                    <select class="col" id="formPaisajes" onchange="elegirCamino()" aria-label="Paisaje">
+                      <option  class="col" value="Lagos">Lagos</option>
+                      <option  class="col" value="Montañas">Montañas</option>
                     </select>
-                    <select class="col" id="form-climas" aria-label="Clima">
-                      <option class="col" selected>¿ Cual clima te gusta mas ?</option>
-                      <option id="Lluvioso" class="col" value="Lluvioso">Lluvioso</option>
-                      <option id="Soleado" class="col" value="Soleado">Soleado</option>
+                    <select class="col" id="formClimas" onchange="elegirClima()" aria-label="Clima">
+                      <option  class="col" value="Lluvioso">Lluvioso</option>
+                      <option  class="col" value="Soleado">Soleado</option>
                     </select>
 
                     <input type="submit" id="btn-elegir" value="elegir" />
@@ -63,8 +61,8 @@
        <li id="lista5"></li>
         </ul>
         -->
-      <section class="container row col  mt-2 mb-2" >
-        <div class=" container col flex d-flex mt-2 mb-2" id="pokeCard"></div>
+      <section id="pokeCard" class="container  flex d-flex  col mt-1 mb-1 ">
+        
 
       </section>
     </div>
@@ -88,7 +86,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
   </script>
-  <script src="./assets/js/miarchivo.js"></script>
+  <!--<script src="./assets/js/miarchivo.js"></script>
+  <script src="./assets/js/app.js"></script>-->
+  <script src="./assets/js/app.js"></script>
 </body>
 
 </html>
