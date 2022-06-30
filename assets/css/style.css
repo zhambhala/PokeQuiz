@@ -1,6 +1,10 @@
-.bg-custom-main{
-  background: rgb(255, 255, 255);
+body{
+  height: 100vh;
+  width: 100%;
+  background: coral;
 }
+
+
 
 .bgCustomColor-footer{
 background: coral ;
@@ -9,6 +13,11 @@ background: coral ;
   color: rgb(0, 0, 0);
   font-style:italic;
   font-weight: bold;
+  background-color: coral;
+  opacity: 0.6;
+  border-radius: 15px;
+  text-align: center;
+  
 }
 .bg-custom-agua{
   background:linear-gradient(to bottom, blue, blueviolet, rgb(171, 86, 250))
@@ -32,3 +41,6 @@ background: coral ;
   border-radius: 100px;
 }
 
+.bGAgua{
+  background:linear-gradient(to bottom, blue, blueviolet, rgb(171, 86, 250))
+}

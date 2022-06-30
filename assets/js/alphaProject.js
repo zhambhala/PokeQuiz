@@ -350,7 +350,6 @@ function elegirClima() {
 
 const formOfTrainer = formulario.addEventListener('submit', (e) => {
     e.preventDefault()
-    console.log(e)
      //console.log(e.target[0])
      //console.log("submit del form")
     
@@ -524,3 +523,38 @@ if (true) {
 } else {
 
 }
+
+/* ejemplo de class con constructor
+
+class Pokemon {
+
+    constructor(nombre, especie, imagen, tipo, id) {
+        this.nombre = nombre
+        this.especie = especie
+        this.imagen = imagen
+        this.tipo = tipo
+        this.id = id
+
+    }
+
+    estos constructores van en la variable pokemones
+    new Pokemon("Charmander", "Charmander", "../img/pokemons/Charmander.webp", "fuego", 4),
+    new Pokemon("Cyndaquil", "Cyndaquil	", "../img/pokemons/Cyndaquil.webp", "fuego", 155),
+    new Pokemon("Fennekin", "Fennekin", "../img/pokemons/Fennekin.webp", "fuego", 653),
+    new Pokemon("Litten", "Litten", "../img/pokemons/Litten.webp", "fuego", 725),
+    new Pokemon("Squirtle", "Squirtle", "../img/pokemons/Squirtle.webp", "agua", 7),
+    new Pokemon("Mudkip", "Mudkip", "../img/pokemons/Mudkip.webp", "agua", 258),
+    new Pokemon("Oshawott", "Oshawott", "../img/pokemons/Oshawott.webp", "agua", 501),
+    new Pokemon("Froakie", "Froakie", "../img/pokemons/Froakie.webp", "agua", 656),
+    new Pokemon("Bulbasaur", "Bulbasaur", "../img/pokemons/Bulbasaur.webp", "planta", 1),
+    new Pokemon("Turtwig", "Turtwig", "../img/pokemons/Turtwig.webp", "planta", 387),
+    new Pokemon("Snivy", "Snivy", "../img/pokemons/Snivy.webp", "planta", 495),
+    new Pokemon("Chespin", "Chespin", "../img/pokemons/Chespin.webp", "planta", 650),
+    new Pokemon("Meowth", "Meowth", "../img/pokemons/Meowth.webp", "normal", 52),
+    new Pokemon("Teddiursa", "Teddiursa", "../img/pokemons/Teddiursa.webp", "normal", 216),
+    new Pokemon("Zigzagoon", "Zigzagoon", "../img/pokemons/Zigzagoon.webp", "normal", 263),
+    new Pokemon("Minccino", "Minccino", "../img/pokemons/Minccino.webp", "normal", 572)
+    
+
+}
+*/

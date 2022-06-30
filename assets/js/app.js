@@ -10,38 +10,24 @@ const formPaisajes = document.querySelector('#formPaisajes')
 const formClimas = document.querySelector('#formClimas')
 const pokeSelection = document.querySelector('#pokeCard')
 let entrenador = []
-/* ejemplo de class con constructor
-
-class Pokemon {
-
-    constructor(nombre, especie, imagen, tipo, id) {
-        this.nombre = nombre
-        this.especie = especie
-        this.imagen = imagen
-        this.tipo = tipo
-        this.id = id
-
+let climaElegido
+let caminoElegido
+let entrenadorInfo
+let main = document.querySelector("main")
+/*
+function mainBgColor() {
+    if (pokedex.push == tAgua) {
+        main.classList.add ("bGAgua")
+        let main = document.createElement('main')
+        main.innerHTML`<div class="card-body">
+        <h6 class="card-title cBlack">Felicidades${entrenador.value} su pokemon es</h6>
+    </div>
+        `
+        main.append(main)
     }
+   
 
-    estos constructores van en la variable pokemones
-    new Pokemon("Charmander", "Charmander", "../img/pokemons/Charmander.webp", "fuego", 4),
-    new Pokemon("Cyndaquil", "Cyndaquil	", "../img/pokemons/Cyndaquil.webp", "fuego", 155),
-    new Pokemon("Fennekin", "Fennekin", "../img/pokemons/Fennekin.webp", "fuego", 653),
-    new Pokemon("Litten", "Litten", "../img/pokemons/Litten.webp", "fuego", 725),
-    new Pokemon("Squirtle", "Squirtle", "../img/pokemons/Squirtle.webp", "agua", 7),
-    new Pokemon("Mudkip", "Mudkip", "../img/pokemons/Mudkip.webp", "agua", 258),
-    new Pokemon("Oshawott", "Oshawott", "../img/pokemons/Oshawott.webp", "agua", 501),
-    new Pokemon("Froakie", "Froakie", "../img/pokemons/Froakie.webp", "agua", 656),
-    new Pokemon("Bulbasaur", "Bulbasaur", "../img/pokemons/Bulbasaur.webp", "planta", 1),
-    new Pokemon("Turtwig", "Turtwig", "../img/pokemons/Turtwig.webp", "planta", 387),
-    new Pokemon("Snivy", "Snivy", "../img/pokemons/Snivy.webp", "planta", 495),
-    new Pokemon("Chespin", "Chespin", "../img/pokemons/Chespin.webp", "planta", 650),
-    new Pokemon("Meowth", "Meowth", "../img/pokemons/Meowth.webp", "normal", 52),
-    new Pokemon("Teddiursa", "Teddiursa", "../img/pokemons/Teddiursa.webp", "normal", 216),
-    new Pokemon("Zigzagoon", "Zigzagoon", "../img/pokemons/Zigzagoon.webp", "normal", 263),
-    new Pokemon("Minccino", "Minccino", "../img/pokemons/Minccino.webp", "normal", 572)
     
-
 }
 */
 
@@ -161,6 +147,9 @@ const pokemones = [
     },
 
 ]
+const pokemonesJSON = JSON.stringify(pokemones)
+console.log(pokemonesJSON)
+localStorage.setItem('nombre', pokemonesJSON)
 
 const tFuego = pokemones.filter((Pokemon) => {
     return (Pokemon.tipo === "fuego")
@@ -202,69 +191,92 @@ const elecNombresPosibles = (array1, array2) => {
     array1.push(array2[3].nombre)
 }
 //----------------------------------- seleccion de form
-let climaElegido
-let caminoElegido
 
 function elegirCamino() {
     var selectWay = document.getElementById("formPaisajes").value;
     if (selectWay == "Lagos") {
         caminoElegido = 1
-        console.log(selectWay)
-        console.log(caminoElegido)
+        //console.log(selectWay)
+        //console.log(caminoElegido)
     } else {
         caminoElegido = 2
-        console.log(selectWay)
-        console.log(caminoElegido)
+        //console.log(selectWay)
+        //console.log(caminoElegido)
     }
 }
 function elegirClima() {
     var selectWeather = document.getElementById("formClimas").value;
     if (selectWeather == "Lluvioso") {
         climaElegido = 1
-        console.log(selectWeather)
-        console.log(climaElegido)
+        //console.log(selectWeather)
+        //console.log(climaElegido)
     } else {
         climaElegido = 2
-        console.log(selectWeather)
-        console.log(climaElegido)
+        //console.log(selectWeather)
+        //console.log(climaElegido)
     }
+
+
+}
+let upCount
+function elegirCCCompletado() {
+    elegirClima()
+    elegirCamino()
+    entrenadorInfo = {
+        nombre: inputNombre.value
+    }
+    return elegirCCCompletado
 }
 //-------------------------------------------------------------------
-
+function formRelleno() {
+    if (inputNombre == "") {
+        upCount++;
+    }if (upCount == 0) {
+        document.querySelector("#btn-elegir").disabled = false
+    }else{
+        document.querySelector("#btn-elegir").disabled = true
+    }
+    
+}
 let formOfTrainer = formulario.addEventListener('submit', (e) => {
     e.preventDefault()
-    elegirCamino()
-    elegirClima()
+    elegirCCCompletado()
+    //elegirCamino()
+    //elegirClima()
     //console.log(e)
     //console.log(e.target[0])
     //console.log("submit del form")
 
-    const entrenadorInfo = {
-        nombre: inputNombre.value,
-    }
+    //console.log(entrenadorInfo)
     if (btnEnviar == onsubmit) {
         entrenador.push(entrenadorInfo)
         if (caminoElegido === 1 && climaElegido === 1) {
             elecNombresPosibles(nombreElecciones, tAgua)
             elecPosibles(pokedex, tAgua)
-            CrecionCartaPokemon()
-            agregarTrasfondoDeCarta()
-            console.log("funciona en agua")
+            CrecionCartaPokemonAgua()
+            formRelleno()
+            //mainBgColor()
+            //agregarTrasfondoDeCarta()
+            //console.log("funciona en agua")
+            //console.log( entrenador)
         } else if (caminoElegido === 1 && climaElegido === 2) {
             elecNombresPosibles(nombreElecciones, tFuego)
             elecPosibles(pokedex, tFuego)
-            CrecionCartaPokemon()
-            console.log("funciona en fuego")
+            CrecionCartaPokemonFuego()
+            formRelleno()
+            //console.log("funciona en fuego")
         } else if (caminoElegido === 2 && climaElegido === 2) {
             elecNombresPosibles(nombreElecciones, tPlanta)
             elecPosibles(pokedex, tPlanta)
-            CrecionCartaPokemon()
-            console.log("funciona en planta")
+            CrecionCartaPokemonPlanta()
+            formRelleno()
+            //console.log("funciona en planta")
         } else if (caminoElegido === 2 && climaElegido === 1) {
             elecNombresPosibles(nombreElecciones, tNormal)
             elecPosibles(pokedex, tNormal)
-            CrecionCartaPokemon()
-            console.log("funciona en normal")
+            CrecionCartaPokemonNormal()
+            formRelleno()
+            // console.log("funciona en normal")
         } else {
             alert("non")
         }
@@ -276,35 +288,3 @@ let formOfTrainer = formulario.addEventListener('submit', (e) => {
 
 })
 //--------------------
-
-function CrecionCartaPokemon() {
-    pokedex.forEach((e) => {
-        let pokeCards = document.createElement('pokeCards')
-        pokeCards.innerHTML = `
-    <div class="m-1 justify-content-center">
-    <div class="card trasfondoDeCarta text-dark" style="width: 14rem;">
-        <img class="card-img-top" src="${e.imagen}" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title cBlack">${e.nombre}</h5>
-            <p class="card-text cBlack">numero en pokedex ${e.id}</p>
-            <p>${e.especie}</p>
-            <button class="btn btn-custom-btn" onClick="elegirPokemon(${e.id})">ELEGIR</button>
-        </div>
-    </div>
-    </div>
-`
-        pokeSelection.append(pokeCards)
-
-    })
-}
-function agregarTrasfondoDeCarta() {
-    let trasfondoDeCarta = document.querySelector(".trasfondoDeCarta")
-    pokedex.forEach((a) => {
-        
-    trasfondoDeCarta.classList.add("bg-custom-agua")
-
-
-    })
-     
-}
-
