@@ -44,3 +44,6 @@ background: coral ;
 .bGAgua{
   background:linear-gradient(to bottom, blue, blueviolet, rgb(171, 86, 250))
 }
+.megaFont{
+  font-size: xx-large;
+}

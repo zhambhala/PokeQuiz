@@ -14,6 +14,7 @@ let climaElegido
 let caminoElegido
 let entrenadorInfo
 let main = document.querySelector("main")
+let upBtnCount
 /*
 function mainBgColor() {
     if (pokedex.push == tAgua) {
@@ -148,9 +149,8 @@ const pokemones = [
 
 ]
 const pokemonesJSON = JSON.stringify(pokemones)
-console.log(pokemonesJSON)
-localStorage.setItem('nombre', pokemonesJSON)
-
+//console.log(pokemonesJSON)
+localStorage.setItem("pokemones", pokemonesJSON)
 const tFuego = pokemones.filter((Pokemon) => {
     return (Pokemon.tipo === "fuego")
 
@@ -218,25 +218,25 @@ function elegirClima() {
 
 
 }
-let upCount
+
 function elegirCCCompletado() {
     elegirClima()
     elegirCamino()
     entrenadorInfo = {
-        nombre: inputNombre.value
+        nombre: inputNombre.value,
+
     }
     return elegirCCCompletado
 }
 //-------------------------------------------------------------------
 function formRelleno() {
-    if (inputNombre == "") {
-        upCount++;
-    }if (upCount == 0) {
+    upBtnCount++;
+    if (upBtnCount == 0) {
         document.querySelector("#btn-elegir").disabled = false
-    }else{
+    } else {
         document.querySelector("#btn-elegir").disabled = true
     }
-    
+
 }
 let formOfTrainer = formulario.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -255,6 +255,7 @@ let formOfTrainer = formulario.addEventListener('submit', (e) => {
             elecPosibles(pokedex, tAgua)
             CrecionCartaPokemonAgua()
             formRelleno()
+            lSCargarInfo()
             //mainBgColor()
             //agregarTrasfondoDeCarta()
             //console.log("funciona en agua")
@@ -288,3 +289,10 @@ let formOfTrainer = formulario.addEventListener('submit', (e) => {
 
 })
 //--------------------
+console.log(entrenadorInfo)
+console.log(entrenador)
+
+function lSCargarInfo() {
+    localStorage.setItem("nombre",entrenador[0].nombre)
+    return lSCargarInfo
+}
