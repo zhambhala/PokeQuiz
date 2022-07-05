@@ -168,11 +168,6 @@ const tPlanta = pokemones.filter((Pokemon) => {
 const tNormal = pokemones.filter((Pokemon) => {
     return (Pokemon.tipo === "normal")
 })
-/*const desiciones = {
-    clima: Number(prompt("elija el clima que mas le guste con numeros, 1=lluvioso, 2=soleado")),
-    lugar: Number(prompt("elija el lugar que mas le guste con numeros, 1=lagos, 2=montañas")),
-}
-*/
 //console.log(tFuego)
 //console.log(tAgua)
 //console.log(tNormal)
@@ -194,18 +189,21 @@ const elecNombresPosibles = (array1, array2) => {
 
 function elegirCamino() {
     var selectWay = document.getElementById("formPaisajes").value;
-    if (selectWay == "Lagos") {
-        caminoElegido = 1
-        //console.log(selectWay)
-        //console.log(caminoElegido)
-    } else {
-        caminoElegido = 2
-        //console.log(selectWay)
-        //console.log(caminoElegido)
-    }
+     if (selectWay == "Lagos") {
+         caminoElegido = 1
+         //console.log(selectWay)
+         //console.log(caminoElegido)
+     } else {
+         caminoElegido = 2
+         //console.log(selectWay)
+         //console.log(caminoElegido)
+     } //anterior a sintaxis de Op. ternarios
+    //selectWay == "Lagos" ? caminoElegido = 1 : caminoElegido = 2;
 }
+
 function elegirClima() {
     var selectWeather = document.getElementById("formClimas").value;
+    
     if (selectWeather == "Lluvioso") {
         climaElegido = 1
         //console.log(selectWeather)
@@ -215,7 +213,7 @@ function elegirClima() {
         //console.log(selectWeather)
         //console.log(climaElegido)
     }
-
+   // selectWeather == "Lluvioso" ? caminoElegido = 1 : caminoElegido = 2
 
 }
 
@@ -231,12 +229,13 @@ function elegirCCCompletado() {
 //-------------------------------------------------------------------
 function formRelleno() {
     upBtnCount++;
-    if (upBtnCount == 0) {
-        document.querySelector("#btn-elegir").disabled = false
-    } else {
-        document.querySelector("#btn-elegir").disabled = true
-    }
-
+    /* if (upBtnCount == 0) {
+         document.querySelector("#btn-elegir").disabled = false
+     } else {
+         document.querySelector("#btn-elegir").disabled = true
+     }*/
+    //OPERADOR TERNARIO IF------------------------------------------------------------------------------------------------------------------------------------------------
+    upBtnCount == 0 ? document.querySelector("#btn-elegir").disabled = false : document.querySelector("#btn-elegir").disabled = true;
 }
 let formOfTrainer = formulario.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -289,10 +288,9 @@ let formOfTrainer = formulario.addEventListener('submit', (e) => {
 
 })
 //--------------------
-console.log(entrenadorInfo)
 console.log(entrenador)
 
 function lSCargarInfo() {
-    localStorage.setItem("nombre",entrenador[0].nombre)
+    localStorage.setItem("nombre", entrenador[0].nombre)
     return lSCargarInfo
 }

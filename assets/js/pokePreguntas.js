@@ -25,7 +25,7 @@ document.querySelector('#pokeCard').innerHTML = `
        </div>
 `
 Swal.fire({
-    title: 'sepa disculpa patri, estoy pensando como organizar esta parte, la idea es que la card que aparece sea la elegida en el paso anterior',
+    title: 'sepa disculpar patri, estoy pensando como organizar esta parte, la idea es que la card que aparece sea la elegida en el paso anterior',
     showClass: {
       popup: 'animate__animated animate__fadeInDown'
     },
