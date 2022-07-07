@@ -8,7 +8,7 @@ const pokemones = JSON.parse(pokeJSON)
 let entrenadorLs = localStorage.getItem("nombre")
 //console.log(entrenadorLs)
 
-document.querySelector('#pokeCard').innerHTML = `
+document.querySelector('#pokeCard').innerHTML =`
 <div class="container"> 
 <div class="m-1 justify-content-center"><h1>felicidades ${entrenadorLs} este es tu compañero pokemon</h1></div>
     <div class="m-1 justify-content-center">
@@ -36,15 +36,15 @@ Swal.fire({
 let appBg
 window.onload = function () {
   appBg = new PIXI.Application({
-    width: 800,
-    height: 600,
-    backgroundColor: 0x1002ab 
-    
+    width: 1200,
+    height: 100,
+    backgroundColor: 0x1002ab,
+    zIndex: 0
   }
   );
 
 
-  document.body.appendChild(appBg.view)
+  document.getElementById("canvasGame").appendChild(appBg.view)
 }
 
 function mou() {
@@ -61,7 +61,7 @@ const style = new PIXI.TextStyle({
   fontSize: 36,
   fontStyle: 'italic',
   fontWeight: 'bold',
-  fill: ['#ffffff', '#00ff99'], // gradient
+  fill: ['#ff2fff', '#00ff99'], // gradient
   stroke: '#4a1850',
   strokeThickness: 5,
   dropShadow: true,
@@ -69,14 +69,15 @@ const style = new PIXI.TextStyle({
   dropShadowBlur: 4,
   dropShadowAngle: Math.PI / 6,
   dropShadowDistance: 6,
-  wordWrap: true,
-  wordWrapWidth: 440,
+  //wordWrap: true,
+  //wordWrapheight:25 ,
+  //wordWrapWidth: 100,
   lineJoin: 'round',
 });
 
-const richText = new PIXI.Text('Buenas Patri, estoy practicando con pixi js, para poder tener un diseño mas llamativo ', style);
+const richText = new PIXI.Text('BIENVENIDOS A POKEPREGUNTAS', style);
 richText.x = 50;
 richText.y = 220;
 app.stage.addChild(richText);
 
-document.body.appendChild(app.view)
+document.getElementById("textoEntrada").appendChild(app.view)
