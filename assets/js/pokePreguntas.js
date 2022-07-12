@@ -1,5 +1,54 @@
 
 
+const container = document.querySelector('#pokemon-container')
+const btnAnterior = document.querySelector('#anterior')
+const btnSiguiente = document.querySelector('#siguiente')
+
+let id = 1
+
+const pokeDexx = async () => {
+  const resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+  const data = await resp.json()
+  const {name, types:{[0]: type}, sprites: {versions: {"generation-vii": {"ultra-sun-ultra-moon": {front_default: img}} }}} = data
+console.log(data)
+  container.innerHTML = `  <div class="m-1 justify-content-center">
+  <div class="card bg-custom-agua trasfondoDeCarta text-dark" style="width: 14rem;">
+      <img class="card-img-top" src="${img}" alt="Card image cap">
+      <div class="card-body">
+          <h5 class="card-title cBlack">${name}</h5>
+          <p class="card-text cBlack">numero en pokedex ${id}</p>
+          <p class="card-text cBlack">${type.type.name}</p>
+      </div>
+  </div>
+  </div>
+          `
+          //console.log(type)
+}
+
+btnSiguiente.addEventListener('click', () => {
+  id++
+  pokeDexx()
+})
+
+btnAnterior.addEventListener('click', () => {
+  if (id === 1) { return }
+
+  id--
+  pokeDexx()
+})
+
+pokeDexx()
+
+
+
+
+
+
+
+
+
+/*
+
 const pokeJSON = localStorage.getItem("pokemones")
 const pokemones = JSON.parse(pokeJSON)
 
@@ -24,15 +73,20 @@ document.querySelector('#pokeCard').innerHTML =`
     </div> 
        </div>
 `
-Swal.fire({
-  title: 'sepa disculpar patri, estoy pensando como organizar esta parte, la idea es que la card que aparece sea la elegida en el paso anterior',
-  showClass: {
-    popup: 'animate__animated animate__fadeInDown'
-  },
-  hideClass: {
-    popup: 'animate__animated animate__fadeOutUp'
-  }
-})
+setTimeout ( () =>(
+  Swal.fire({
+    title: 'sepa disculpar patri, estoy pensando como organizar esta parte, la idea es que la card que aparece sea la elegida en el paso anterior',
+    showClass: {
+      popup: 'animate__animated animate__fadeInDown'
+    },
+    hideClass: {
+      popup: 'animate__animated animate__fadeOutUp'
+    }
+  })
+
+), 5000
+)
+
 let appBg
 window.onload = function () {
   appBg = new PIXI.Application({
@@ -81,3 +135,4 @@ richText.y = 220;
 app.stage.addChild(richText);
 
 document.getElementById("textoEntrada").appendChild(app.view)
+*/
