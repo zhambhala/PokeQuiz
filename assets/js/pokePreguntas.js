@@ -1,138 +1,107 @@
 
+const quizQuestions = [
+  {
+    question: "¿Cuál de estos Pokémon se vería más afectado por el movimiento? Hidrobomba?",
+    a:"Charizard",
+    b:"Ónix",
+    c:"Lapras",
+    rigthAns:"ans2"
+  },
+  {
+    question: "¿Cómo se llama la enfermera en el anime que dirige todos los Centros Pokémon? ",
+    a:"Enfermera Fun",
+    b:"Enfermera Merry",
+    c:"Enfermera Joy",
+    rigthAns:"ans3"
+  },
+  {
+    question: "¿Qué Pokémon atacó al profesor Birch en Pokémon Ruby y Sapphire?",
+    a:"Poochyena",
+    b:"Aron",
+    c:"Zigzagoon",
+    rigthAns:"ans1"
+  },
+  {
+    question: "De los siguientes Pokémon, ¿cuál es el más pequeño?",
+    a:"Ralts",
+    b:"Roselia",
+    c:"Joltik",
+    rigthAns:"ans3"
+  }
+  ,
+  {
+    question: "¿Cuál de estos no es un movimiento de tipo psíquico?",
+    a:"Más Psique",
+    b:"Agilidad",
+    c:"Arrumaco",
+    rigthAns:"ans1"
+  },
+  {
+    question: "¿Cuál de estos Pokémon es parte del tipo volador?",
+    a:"Dragonair",
+    b:"Flygon",
+    c:"Tropius",
+    rigthAns:"ans3"
+  }
+];
+const question = document.querySelector(".question");
+const option1 = document.querySelector("#option1");
+const option2 = document.querySelector("#option2");
+const option3 = document.querySelector("#option3");
+const answers = document.querySelectorAll(".answer");
+const submit = document.querySelector("#submit");
+const showScore = document.querySelector("#showScore");
+let questionCount = 0;
+let score = 0;
 
-const container = document.querySelector('#pokemon-container')
-const btnAnterior = document.querySelector('#anterior')
-const btnSiguiente = document.querySelector('#siguiente')
+const loadQuestion = () => {
+  let list = quizQuestions[questionCount];
+  question.innerText = list.question;
+  option1.innerText = list.a;
+  option2.innerText = list.b;
+  option3.innerText = list.c
+};
+loadQuestion();
 
-let id = 1
-
-const pokeDexx = async () => {
-  const resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-  const data = await resp.json()
-  const {name, types:{[0]: type}, sprites: {versions: {"generation-vii": {"ultra-sun-ultra-moon": {front_default: img}} }}} = data
-console.log(data)
-  container.innerHTML = `  <div class="m-1 justify-content-center">
-  <div class="card bg-custom-agua trasfondoDeCarta text-dark" style="width: 14rem;">
-      <img class="card-img-top" src="${img}" alt="Card image cap">
-      <div class="card-body">
-          <h5 class="card-title cBlack">${name}</h5>
-          <p class="card-text cBlack">numero en pokedex ${id}</p>
-          <p class="card-text cBlack">${type.type.name}</p>
-      </div>
-  </div>
-  </div>
-          `
-          //console.log(type)
-}
-
-btnSiguiente.addEventListener('click', () => {
-  id++
-  pokeDexx()
-})
-
-btnAnterior.addEventListener('click', () => {
-  if (id === 1) { return }
-
-  id--
-  pokeDexx()
-})
-
-pokeDexx()
-
-
-
-
-
-
-
-
-
-/*
-
-const pokeJSON = localStorage.getItem("pokemones")
-const pokemones = JSON.parse(pokeJSON)
-
-//console.log(pokemones)
-//console.log(pokeJSON)
-let entrenadorLs = localStorage.getItem("nombre")
-//console.log(entrenadorLs)
-
-document.querySelector('#pokeCard').innerHTML =`
-<div class="container"> 
-<div class="m-1 justify-content-center"><h1>felicidades ${entrenadorLs} este es tu compañero pokemon</h1></div>
-    <div class="m-1 justify-content-center">
-    <div class="card bg-custom-agua trasfondoDeCarta text-dark" style="width: 14rem;">
-        <img class="card-img-top" src="${pokemones[0].imagen}" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title cBlack">${pokemones[0].nombre}</h5>
-            <p class="card-text cBlack">numero en pokedex ${pokemones[0].id}</p>
-            <p class="card-text cBlack">${pokemones[0].especie}</p>
-            <button class="btn btn-custom-btn" id="btnIrAgua" onClick="elegirPokemon(${pokemones[0].id})">ELEGIR</button>
-        </div>
-    </div>
-    </div> 
-       </div>
-`
-setTimeout ( () =>(
-  Swal.fire({
-    title: 'sepa disculpar patri, estoy pensando como organizar esta parte, la idea es que la card que aparece sea la elegida en el paso anterior',
-    showClass: {
-      popup: 'animate__animated animate__fadeInDown'
-    },
-    hideClass: {
-      popup: 'animate__animated animate__fadeOutUp'
+const getCheckedAnswer = () => {
+  let ans
+  answers.forEach((i) => {
+    if (i.checked) {
+      ans = i.id
     }
-  })
-
-), 5000
-)
-
-let appBg
-window.onload = function () {
-  appBg = new PIXI.Application({
-    width: 1200,
-    height: 100,
-    backgroundColor: 0x1002ab,
-    zIndex: 0
+  });
+  return ans;
+};
+const uncheckAnswers = () => {
+  answers.forEach((i) => { i.checked = false; })
+};
+submit.addEventListener("click", () => {
+  const x = getCheckedAnswer();
+  if (x === quizQuestions[questionCount].rigthAns) {
+    score++;
   }
-  );
-
-
-  document.getElementById("canvasGame").appendChild(appBg.view)
-}
-
-function mou() {
-  if (appBg == onclick) {
-    backgroundColor = 0x1392bb
+  questionCount++;
+  uncheckAnswers();
+  if (questionCount<quizQuestions.length) {
+    loadQuestion();
+  } else {
+    showScore.innerHTML = ` <h3 class="h3">puntuacion ${score}/${quizQuestions.length}</h3> 
+    <button class="btn btnPA border bg-white" onClick="location.reload()">Jugar Otra ves</button> `
+    showScore.classList.remove("score");
+    formRelleno()
   }
-  return mou
+})
+console.log(quizQuestions)
+console.log(quizQuestions.lenght)
+
+
+function formRelleno() {
+ 
+  /* if (upBtnCount == 0) {
+       document.querySelector("#btn-elegir").disabled = false
+   } else {
+       document.querySelector("#btn-elegir").disabled = true
+   }*/
+  //OPERADOR TERNARIO IF------------------------------------------------------------------------------------------------------------------------------------------------
+  questionCount == 6 ? document.querySelector("#submit").disabled = true : document.querySelector("#submit").disabled = false;
 }
-mou()
-const app = new PIXI.Application({ backgroundColor: 0x1392bb });
-document.body.appendChild(app.view);
-const style = new PIXI.TextStyle({
-  fontFamily: 'Arial',
-  fontSize: 36,
-  fontStyle: 'italic',
-  fontWeight: 'bold',
-  fill: ['#ff2fff', '#00ff99'], // gradient
-  stroke: '#4a1850',
-  strokeThickness: 5,
-  dropShadow: true,
-  dropShadowColor: '#000000',
-  dropShadowBlur: 4,
-  dropShadowAngle: Math.PI / 6,
-  dropShadowDistance: 6,
-  //wordWrap: true,
-  //wordWrapheight:25 ,
-  //wordWrapWidth: 100,
-  lineJoin: 'round',
-});
-
-const richText = new PIXI.Text('BIENVENIDOS A POKEPREGUNTAS', style);
-richText.x = 50;
-richText.y = 220;
-app.stage.addChild(richText);
-
-document.getElementById("textoEntrada").appendChild(app.view)
-*/
