@@ -53,6 +53,8 @@ const submit = document.querySelector("#submit");
 const showScore = document.querySelector("#showScore");
 let questionCount = 0;
 let score = 0;
+let nombre = localStorage.getItem("nombre")
+let pokemon = localStorage.getItem("pokemones")
 
 const loadQuestion = () => {
   let list = quizQuestions[questionCount];
@@ -85,14 +87,14 @@ submit.addEventListener("click", () => {
   if (questionCount<quizQuestions.length) {
     loadQuestion();
   } else {
-    showScore.innerHTML = ` <h3 class="h3">puntuacion ${score}/${quizQuestions.length}</h3> 
+    showScore.innerHTML = ` <h2 class="h2"> Felicidades ${nombre} Tu puntuacion es ${score}/${quizQuestions.length}</h2> 
     <button class="btn btnPA border bg-white" onClick="location.reload()">Jugar Otra ves</button> `
     showScore.classList.remove("score");
     formRelleno()
   }
 })
-console.log(quizQuestions)
-console.log(quizQuestions.lenght)
+//console.log(quizQuestions)
+//console.log(quizQuestions.lenght)
 
 
 function formRelleno() {

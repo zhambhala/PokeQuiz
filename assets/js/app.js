@@ -15,23 +15,6 @@ let caminoElegido
 let entrenadorInfo
 let main = document.querySelector("main")
 let upBtnCount
-/*
-function mainBgColor() {
-    if (pokedex.push == tAgua) {
-        main.classList.add ("bGAgua")
-        let main = document.createElement('main')
-        main.innerHTML`<div class="card-body">
-        <h6 class="card-title cBlack">Felicidades${entrenador.value} su pokemon es</h6>
-    </div>
-        `
-        main.append(main)
-    }
-   
-
-    
-}
-*/
-
 const pokemones = [
 
     {
@@ -237,6 +220,11 @@ function formRelleno() {
     //OPERADOR TERNARIO IF------------------------------------------------------------------------------------------------------------------------------------------------
     upBtnCount == 0 ? document.querySelector("#btn-elegir").disabled = false : document.querySelector("#btn-elegir").disabled = true;
 }
+function lSCargarInfo() {
+    localStorage.setItem("nombre", entrenador[0].nombre)
+    return lSCargarInfo
+}
+
 let formOfTrainer = formulario.addEventListener('submit', (e) => {
     e.preventDefault()
     elegirCCCompletado()
@@ -290,7 +278,3 @@ let formOfTrainer = formulario.addEventListener('submit', (e) => {
 //--------------------
 console.log(entrenador)
 
-function lSCargarInfo() {
-    localStorage.setItem("nombre", entrenador[0].nombre)
-    return lSCargarInfo
-}

@@ -1,4 +1,3 @@
-
 function CrecionCartaPokemonAgua() {
     pokedex.forEach((e) => {
         let pokeCards = document.createElement('pokeCards')
@@ -7,10 +6,8 @@ function CrecionCartaPokemonAgua() {
     <div class="card bg-custom-agua trasfondoDeCarta text-dark" style="width: 14rem;">
         <img class="card-img-top" src="${e.imagen}" alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title cBlack">${e.nombre}</h5>
-            <p class="card-text cBlack">numero en pokedex ${e.id}</p>
-            <p class="card-text cBlack">${e.especie}</p>
-            <button class="btn btn-custom-btn" id="btnIrAgua" onClick="elegirPokemon(${e.id})">ELEGIR</button>
+            <p class="card-title cBlack">nombre: ${e.nombre}</p>
+            <p class="card-text cBlack">numero en pokedex: ${e.id}</p>
         </div>
     </div>
     </div>
@@ -28,10 +25,9 @@ function CrecionCartaPokemonFuego() {
     <div class="card bg-custom-fuego trasfondoDeCarta text-dark" style="width: 14rem;">
         <img class="card-img-top" src="${e.imagen}" alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title cBlack">${e.nombre}</h5>
-            <p class="card-text cBlack">numero en pokedex ${e.id}</p>
-            <p class="card-text cBlack">${e.especie}</p>
-            <button class="btn btn-custom-btn" id="btnIrFuego" onClick="elegirPokemon(${e.id})">ELEGIR</button>
+            <p class="card-title cBlack">nombre: ${e.nombre}</p>
+            <p class="card-text cBlack">numero en pokedex: ${e.id}</p>
+            
         </div>
     </div>
     </div>
@@ -50,10 +46,8 @@ function CrecionCartaPokemonPlanta() {
     <div class="card bg-custom-planta trasfondoDeCarta text-dark" style="width: 14rem;">
         <img class="card-img-top" src="${e.imagen}" alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title cBlack">${e.nombre}</h5>
-            <p class="card-text cBlack">numero en pokedex ${e.id}</p>
-            <p class="card-text cBlack">${e.especie}</p>
-            <button class="btn btn-custom-btn" id="btnIrPlanta" onClick="elegirPokemon(${e.id})">ELEGIR</button>
+            <p class="card-title cBlack">$nombre: {e.nombre}</p>
+            <p class="card-text cBlack">numero en pokedex: ${e.id}</p>
         </div>
     </div>
     </div>
@@ -73,10 +67,8 @@ function CrecionCartaPokemonNormal() {
     <div class="card bg-custom-normal trasfondoDeCarta text-dark" style="width: 14rem;">
         <img class="card-img-top" src="${e.imagen}" alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title cBlack">${e.nombre}</h5>
-            <p class="card-text cBlack">numero en pokedex ${e.id}</p>
-            <p class="card-text cBlack">${e.especie}</p>
-            <button class="btn btn-custom-btn" id="btnIrNormal" onClick="elegirPokemon(${e.id})">ELEGIR</button>
+            <p class="card-title cBlack">nombre: ${e.nombre}</p>
+            <p class="card-text cBlack">numero en pokedex: ${e.id}</p>
         </div>
     </div>
     </div>

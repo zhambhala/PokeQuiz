@@ -48,17 +48,12 @@ ul, ol, li, a{
   
 }
 .son{
-  height: 350px;
+  height: 100%;
   width: 1250px;
 
 }
 
-.pokeFriend{
 
-  height: 250px;
-  width: 1250px;
-
-}
 body {
   background: rgb(85, 144, 189);
   background: linear-gradient(
@@ -70,7 +65,9 @@ body {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
 }
-
+label{
+  font-size: 2rem;
+}
 h1 {
   color: white;
 }

@@ -1,6 +1,3 @@
-
-
-////////////////////////
 const pokemonContainer = document.querySelector(".pokemon-container");
 const spinner = document.querySelector("#spinner");
 const previous = document.querySelector("#previous");
